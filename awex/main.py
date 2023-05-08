@@ -1,4 +1,4 @@
-from lib.sdaclient import SdaClient
+from awex.lib.sdaclient import SdaClient
 import typer
 import sys
 from rich.progress import Progress, SpinnerColumn, TextColumn
@@ -23,7 +23,5 @@ def main():
 
     print("Successfully logged in!")
 
-if __name__ == "__main__":
-    typer.run(main)
-    username = typer.prompt("Username")
-    password = typer.prompt("Password", hide_input=True)
+
+typer.run(main)

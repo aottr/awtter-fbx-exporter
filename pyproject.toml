@@ -8,12 +8,15 @@ readme = "README.md"
 packages = [{include = "awex"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.12"
 tarsafe = "^0.0.5"
 typer = "^0.9.0"
 requests = "^2.30.0"
 textual = "^0.24.1"
 
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^5.10.1"
 
 [build-system]
 requires = ["poetry-core"]
