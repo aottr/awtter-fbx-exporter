@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "awex"}]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
+python = ">=3.10.1,<3.12"
 tarsafe = "^0.0.5"
 typer = "^0.9.0"
 requests = "^2.30.0"
