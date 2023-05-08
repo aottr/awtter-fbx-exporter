@@ -24,7 +24,13 @@ class SdaClient:
         self.token = res.json()['data']['token']
 
     def get_models(self):
+        """Retrieve a list with all model bases on your account
 
+        Model dict keys:
+            name: str
+            file: str
+            version: str
+        """
         models = []
 
         res = requests.get(
@@ -42,7 +48,7 @@ class SdaClient:
             for file in product['files']:
                 if not file['isVrcUnitypackage']:
                     continue
-                print("ee")
+
                 models.append({
                     'name': file['name'],
                     'file': file['path'],
