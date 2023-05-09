@@ -1,5 +1,12 @@
 import requests
+from typing import TypedDict
 from .errors import InvalidCredentialsError
+
+
+class Model(TypedDict):
+    name: str
+    file: str
+    version: str
 
 
 class SdaClient:
@@ -49,11 +56,19 @@ class SdaClient:
                 if not file['isVrcUnitypackage']:
                     continue
 
-                models.append({
-                    'name': file['name'],
-                    'file': file['path'],
-                    'version': file['version']
-                })
+                models.append(Model(
+                    name=file['name'],
+                    file=file['path'],
+                    version=file['version'])
+                )
                 break
 
         return models
+
+    def download_stream_model(self, model: Model):
+        return requests.get(
+            model['file'],
+            stream=True,
+            headers={
+                'Authorization': f'Token {self.token}'
+            })
